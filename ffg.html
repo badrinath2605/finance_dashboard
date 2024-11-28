@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h2>EXPensio</h2>
+        </div>
+        <ul class="nav">
+            <li>Support</li>
+            <li>Settings</li>
+            <li>Approvals</li>
+            <li>Trips</li>
+            <li>Expenses</li>
+            <li class="active">Home</li>
+        </ul>
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile Picture">
+            <p>Janice Chandler</p>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="section">
+            <h3>Monthly Report</h3>
+            <canvas id="monthly-report-chart"></canvas>
+        </div>
+        <div class="section">
+            <h3>Day-to-Day Expenses</h3>
+            <canvas id="daily-expenses-chart"></canvas>
+        </div>
+        <div class="quick-access">
+            <button>+ New Expense</button>
+            <button>+ Add Receipt</button>
+            <button>Create Report</button>
+            <button>Create Trip</button>
+        </div>
+        <div class="pending-tasks">
+            <h3>Pending Tasks</h3>
+            <ul>
+                <li>Pending Approvals: 5</li>
+                <li>New Trips Registered: 4</li>
+                <li>Unreported Expenses: 1</li>
+                <li>Unreported Advances: 0</li>
+            </ul>
+        </div>
+        <div class="recent-expenses">
+            <h3>Recent Expenses</h3>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Team</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Client Dinner</td>
+                    <td>Jennifer Lee</td>
+                    <td>Marketing</td>
+                    <td>€120.00</td>
+                </tr>
+                <tr>
+                    <td>Hotel</td>
+                    <td>David Wilson</td>
+                    <td>Finance</td>
+                    <td>€275.75</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('monthly-report-chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+    });
+
+    var ctx2 = document.getElementById('daily-expenses-chart').getContext('2d');
+    var myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Travel', 'Food', 'Accommodation', 'Misc'],
+            datasets: [{
+                label: '# of Votes',
+                data: [15, 10, 5, 8],
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+    });
+</script>
+
+</body>
+</html>
